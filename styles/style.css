@@ -1,18 +1,29 @@
-body {
+html, body {
 	background-color: #F4F3EE;
+    font-family: "Helvetica";
 }
 
-.mainClass {
+header {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+img {
+    width: 100%;
+}
+
+#questionBlock {
     text-align: center;
     font-family: "Helvetica";
     font-size: 25px;
-    width: 1000px;
-    margin: 0 auto;
-    border: 1px solid black;
+    width: 750px;
+    margin: 7% auto;
 }
 
 #textInput {
-	width: 50%;
+	width: 90%;
 	padding: 12px 20px;
 	margin: 8px 0;
 	box-sizing: border-box;
@@ -32,6 +43,9 @@ body {
 	border: 0px;
 	cursor: pointer;
 }
+#mainButton:hover {
+    background-color: #A4BFD8;
+}
 
 #answer {
 	display: none;
@@ -41,21 +55,6 @@ body {
 #greetingText {
 	text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
 }
-
-/*#loader {
-	display: none;
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid #3498db; 
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    animation: spin 2s linear infinite;
-    margin: 0 auto;
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}*/
 
 #loader {
 	display: none;
@@ -78,8 +77,58 @@ body {
     }
 }
 
-#mainInfo {
-    width: 600px;
-    margin: 0 auto;
-    border: 1px solid black;
+#infoTextBlock {
+    width: 55.5%;
+    font-family: "Helvetica";
+    display: inline-block;
+    margin: 0% auto;
+}
+
+#mainInfoBlock {
+    display: none;
+    margin: 7% auto;
+}
+
+.tablink {
+    padding: 14px 16px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    float: left;
+    width: 25%;
+    background-color: #6389AC;
+    color: white;
+    font-size: 17px;
+    font-family: "Helvetica";
+}
+
+.tablink:hover {
+    background-color: #457199;
+}
+
+#vasylSleepingImage {
+    width: 25%;
+    height: 25%;
+}
+
+div.polaroid {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+}
+
+div.container {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.leftPhotoBlock {
+    width: 21%;
+    display: inline-block;
+}
+
+.rightPhotoBlock {
+    width: 21%;
+    display: inline-block;
 }

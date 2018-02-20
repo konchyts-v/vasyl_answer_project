@@ -1,5 +1,8 @@
-answerElement = document.getElementById("answer")
-loaderElement = document.getElementById("loader")
+questionPageContainer = document.getElementById("questionBlock");
+infoPageContainer = document.getElementById("mainInfoBlock");
+
+answerElement = document.getElementById("answer");
+loaderElement = document.getElementById("loader");
 
 
 document.getElementById("mainButton").onclick =  function () {
@@ -44,4 +47,15 @@ function getAnswer(textInput) {
 		answerElement.innerHTML = "Василь каже: " + answers[indexAnswer];
 	}
 	answerElement.style.display = "block";
+}
+
+
+document.getElementById("questionButton").onclick = function() {
+	infoPageContainer.style.display = "none";
+	questionPageContainer.style.display = "block";
+}
+
+document.getElementById("infoButton").onclick = function() {
+	questionPageContainer.style.display = "none";
+	infoPageContainer.style.display = "block";
 }
