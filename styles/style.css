@@ -3,6 +3,15 @@ html, body {
     font-family: "Helvetica";
 }
 
+h2 {
+    text-align: center;
+    text-shadow: 0px 1px 1px black;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
 header {
     position: absolute;
     width: 100%;
@@ -15,6 +24,7 @@ img {
 }
 
 #questionBlock {
+    display: none;
     text-align: center;
     font-family: "Helvetica";
     font-size: 25px;
@@ -78,14 +88,16 @@ img {
 }
 
 #infoTextBlock {
-    width: 55.5%;
+    width: 57.12%;
     font-family: "Helvetica";
     display: inline-block;
     margin: 0% auto;
+    padding: 0%;
+    vertical-align: 20%;
 }
 
 #mainInfoBlock {
-    display: none;
+    /*display: none;*/
     margin: 7% auto;
 }
 
@@ -126,9 +138,35 @@ div.container {
 .leftPhotoBlock {
     width: 21%;
     display: inline-block;
+    margin: 0% auto;
+    vertical-align: top;
 }
 
 .rightPhotoBlock {
     width: 21%;
     display: inline-block;
+    margin-right: 0%;
+    vertical-align: top;
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #6389AC;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+blockquote p {
+    display: inline;
 }
