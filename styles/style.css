@@ -97,7 +97,7 @@ img {
 }
 
 #mainInfoBlock {
-    /*display: none;*/
+    display: none;
     margin: 7% auto;
 }
 
@@ -169,4 +169,13 @@ blockquote:before {
 
 blockquote p {
     display: inline;
+}
+
+#gameCanvas {
+    border: 1px solid black;
+    margin-top: 7%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background: blue;
 }
