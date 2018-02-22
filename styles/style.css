@@ -24,7 +24,6 @@ img {
 }
 
 #questionBlock {
-    display: none;
     text-align: center;
     font-family: "Helvetica";
     font-size: 25px;
@@ -171,11 +170,33 @@ blockquote p {
     display: inline;
 }
 
+#gameBlock {
+    display: none;
+    width: 850px;
+    height: 550px;
+    margin: 7% auto;
+    text-align: center;
+}
+
 #gameCanvas {
     border: 1px solid black;
     margin-top: 7%;
     margin-left: auto;
     margin-right: auto;
-    display: block;
-    background: blue;
+    display: none;
+    background-image: url('../images/games_background.jpg');
+}
+
+#startGameButton {
+    font-size: 20px;
+	padding: 26px 16px;
+	border-radius: 15px;
+	background-color: #C6D7E7;
+	color: black;
+	font-family: "Helvetica";
+	border: 0px;
+	cursor: pointer;
+}
+#mainButton:hover {
+    background-color: #A4BFD8;
 }

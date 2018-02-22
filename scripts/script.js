@@ -1,5 +1,6 @@
 questionPageContainer = document.getElementById("questionBlock");
 infoPageContainer = document.getElementById("mainInfoBlock");
+gamePageContainer = document.getElementById("gameBlock");
 
 answerElement = document.getElementById("answer");
 loaderElement = document.getElementById("loader");
@@ -10,7 +11,7 @@ document.getElementById("mainButton").onclick =  function () {
 	answerElement.style.display = "none";
 	loaderElement.style.display = "block";
 	setTimeout(getAnswer, 2000, textInput);
-}
+};
 
 
 function getAnswer(textInput) {
@@ -52,10 +53,18 @@ function getAnswer(textInput) {
 
 document.getElementById("questionButton").onclick = function() {
 	infoPageContainer.style.display = "none";
+	gamePageContainer.style.display = "none";
 	questionPageContainer.style.display = "block";
-}
+};
 
 document.getElementById("infoButton").onclick = function() {
 	questionPageContainer.style.display = "none";
+	gamePageContainer.style.display = "none";
 	infoPageContainer.style.display = "block";
-}
+};
+
+document.getElementById("gameButton").onclick = function() {
+	questionPageContainer.style.display = "none";
+	infoPageContainer.style.display = "none";
+    gamePageContainer.style.display = "block";
+};

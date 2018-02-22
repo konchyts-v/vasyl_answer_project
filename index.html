@@ -11,7 +11,7 @@
 		<header>
 			<button class="tablink" id="questionButton">Сповідь</button>
 			<button class="tablink" id="infoButton">Про Василя</button>
-			<button class="tablink">Ігри з Василем</button>
+			<button class="tablink" id="gameButton">Ігри з Василем</button>
 			<button class="tablink">Василь у соц.мережах</button>
 		</header>
 
@@ -111,7 +111,10 @@
 			</div>
 		</div>
 
-		<canvas id="gameCanvas" width="850" height="550"></canvas>.
+		<div id="gameBlock">
+			<p><input type="submit" value="Хочу грати" id="startGameButton"></p>
+			<canvas id="gameCanvas" width="850" height="550"></canvas>
+		</div>
 
 		<script type="text/javascript" src="scripts/gameCanvas.js"></script>
 		<script type="text/javascript" src="scripts/script.js"></script>
