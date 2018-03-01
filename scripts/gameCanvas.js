@@ -35,26 +35,35 @@ function drawingMilks() {
 	for(var i = 0; i < milksArray.length; i++) {
 		var milkObject = milksArray[i];
     	drawSprite(milkObject.image, milkObject.x, milkObject.y, milkObject.width, milkObject.height);
-    	milkObject.y += dy + Math.log(score + 1);
+    	milkObject.y += dy;
 	}
 }
 
 
 function creationMilks() {
-	var chance = Math.floor(Math.random() * 10);
-	if (chance <= 3) {
-		var milkObject = new Sprite("images/bad_milk.png", Math.floor(Math.random() * (canvas.width - 50)), -50, 50, 50, "badMilk");
-	} else {
-		var milkObject = new Sprite("images/good_milk.png", Math.floor(Math.random() * canvas.width), -50, 50, 50, "goodMilk");
-	}
-	milksArray.push(milkObject);
+	var milks_count = score / 10 + 1;
+	for(var i = 0; i < milks_count; i++) {
+		setTimeout(function() {
+			var chance = Math.floor(Math.random() * 10);
+			var milkObject;
+			if (chance <= 3) {
+				milkObject = new Sprite(
+					"images/sandwich.png", Math.floor(Math.random() * (canvas.width - 50)), -50, 50, 50, "sandwich"
+				);
+			} else {
+				milkObject = new Sprite(
+					"images/milk.png", Math.floor(Math.random() * canvas.width), -50, 50, 50, "goodMilk"
+				);
+			}
+			milksArray.push(milkObject);
+		}, 300);
+    }
 }
 
 
 function movingMilks() {
 	for(var i = 0; i < milksArray.length; i++) {
 		if (milksArray[i].y > canvas.height) {
-			hunger += 1;
 			milksArray.splice(i, 1);
 		}
 	}
@@ -70,9 +79,13 @@ function collisionDetection() {
         {
         	if (milkObject.type == "goodMilk") {
         		score++;
-        		hunger -= 1;
         	} else {
-        		health -= 1;
+        		if (health > 0) {
+        			health -= 25;
+				}
+				else {
+        			health = 0;
+				}
         	}
             milksArray.splice(i, 1);
             
@@ -81,21 +94,40 @@ function collisionDetection() {
 }
 
 
+function drawInfo() {
+    ctx.font = "16px Helvetica";
+    ctx.fillStyle = "#FF8000";
+    ctx.fillText("Випитого молока: " + score, 8, 20);
+    ctx.fillText("Здоров'я: " + health + "%", 8, 40);
+}
+
+
+function gameOverCheck() {
+	if (health == 0) {
+		clearInterval(mainGameTimer);
+		clearInterval(creatingMilksTimer);
+		ctx.font = "60px Helvetica";
+    	ctx.fillStyle = "#FF8000";
+    	ctx.fillText("Ви програли", 250, 250);
+    	ctx.fillText("Випитого молока: " + score, 175, 300);
+
+    	document.getElementById("startGameButton").style.display = "block";
+	}
+}
+
+
 function processingGame() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	gameOverCheck();
 	drawingMilks();
 	drawVasyl();
 	movingMilks();
 	collisionDetection();
 }
 
-
-function drawInfo() {
-    ctx.font = "16px Arial";
-    ctx.fillStyle = "#FF9500";
-    ctx.fillText("Випитого молока: " + score, 8, 20);
-    ctx.fillText("Здоров'я: " + health * 25 + "%", 8, 40);
-    ctx.fillText("Голод: " + hunger * 25 + "%", 8, 60);
+function mainGameLoop() {
+	mainGameTimer = setInterval(processingGame, 10);
+	creatingMilksTimer = setInterval(creationMilks, 700);
 }
 
 
@@ -124,15 +156,22 @@ function keyUpHandler(e) {
 
 var canvas = document.getElementById("gameCanvas");
 var ctx = canvas.getContext("2d");
-var Vasyl = new Sprite("images/vasyl_stand.png", canvas.width / 2, canvas.height - 130, 80, 130)
-var rightPressed = false;
-var leftPressed = false;
-var milksArray = []
-var score = 0;
-var health = 3;
-var hunger = 0;
+var Vasyl = new Sprite("images/vasyl_stand.png", canvas.width / 2, canvas.height - 130, 80, 130);
+var rightPressed;
+var leftPressed;
+var milksArray;
+var score;
+var health;
+var mainGameTimer;
+var creatingMilksTimer;
 
-
-setInterval(drawVasyl, 10);
-setInterval(processingGame, 10);
-setInterval(creationMilks, 700);
+document.getElementById("startGameButton").onclick = function() {
+	score = 0;
+	health = 100;
+	milksArray = [];
+	leftPressed = false;
+	rightPressed = false;
+	document.getElementById("startGameButton").style.display = "none";
+	document.getElementById("gameCanvas").style.display = "block";
+	mainGameLoop();
+};
