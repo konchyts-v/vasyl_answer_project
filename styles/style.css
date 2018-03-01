@@ -101,7 +101,7 @@ img {
 }
 
 .tablink {
-    padding: 14px 16px;
+    padding: 28px 32px;
     border: none;
     outline: none;
     cursor: pointer;
@@ -109,7 +109,7 @@ img {
     width: 25%;
     background-color: #6389AC;
     color: white;
-    font-size: 17px;
+    font-size: 20px;
     font-family: "Helvetica";
 }
 
@@ -175,7 +175,6 @@ blockquote p {
     width: 850px;
     height: 550px;
     margin: 7% auto;
-    text-align: center;
 }
 
 #gameCanvas {
@@ -196,6 +195,8 @@ blockquote p {
 	font-family: "Helvetica";
 	border: 0px;
 	cursor: pointer;
+    position:relative;
+    left: 43%;
 }
 #mainButton:hover {
     background-color: #A4BFD8;

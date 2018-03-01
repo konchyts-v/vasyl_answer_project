@@ -52,7 +52,7 @@ function creationMilks() {
 				);
 			} else {
 				milkObject = new Sprite(
-					"images/good_milk.png", Math.floor(Math.random() * canvas.width), -50, 50, 50, "goodMilk"
+					"images/milk.png", Math.floor(Math.random() * canvas.width), -50, 50, 50, "goodMilk"
 				);
 			}
 			milksArray.push(milkObject);
@@ -96,7 +96,7 @@ function collisionDetection() {
 
 function drawInfo() {
     ctx.font = "16px Helvetica";
-    ctx.fillStyle = "#FFFFFF";
+    ctx.fillStyle = "#FF8000";
     ctx.fillText("Випитого молока: " + score, 8, 20);
     ctx.fillText("Здоров'я: " + health + "%", 8, 40);
 }
@@ -107,8 +107,11 @@ function gameOverCheck() {
 		clearInterval(mainGameTimer);
 		clearInterval(creatingMilksTimer);
 		ctx.font = "60px Helvetica";
-    	ctx.fillStyle = "#FFFFFF";
+    	ctx.fillStyle = "#FF8000";
     	ctx.fillText("Ви програли", 250, 250);
+    	ctx.fillText("Випитого молока: " + score, 175, 300);
+
+    	document.getElementById("startGameButton").style.display = "block";
 	}
 }
 
@@ -120,6 +123,11 @@ function processingGame() {
 	drawVasyl();
 	movingMilks();
 	collisionDetection();
+}
+
+function mainGameLoop() {
+	mainGameTimer = setInterval(processingGame, 10);
+	creatingMilksTimer = setInterval(creationMilks, 700);
 }
 
 
@@ -149,17 +157,21 @@ function keyUpHandler(e) {
 var canvas = document.getElementById("gameCanvas");
 var ctx = canvas.getContext("2d");
 var Vasyl = new Sprite("images/vasyl_stand.png", canvas.width / 2, canvas.height - 130, 80, 130);
-var rightPressed = false;
-var leftPressed = false;
-var milksArray = [];
-var score = 0;
-var health = 100;
+var rightPressed;
+var leftPressed;
+var milksArray;
+var score;
+var health;
 var mainGameTimer;
 var creatingMilksTimer;
 
 document.getElementById("startGameButton").onclick = function() {
+	score = 0;
+	health = 100;
+	milksArray = [];
+	leftPressed = false;
+	rightPressed = false;
 	document.getElementById("startGameButton").style.display = "none";
 	document.getElementById("gameCanvas").style.display = "block";
-	mainGameTimer = setInterval(processingGame, 10);
-	creatingMilksTimer = setInterval(creationMilks, 700);
+	mainGameLoop();
 };
