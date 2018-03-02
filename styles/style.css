@@ -201,3 +201,100 @@ blockquote p {
 #mainButton:hover {
     background-color: #A4BFD8;
 }
+
+#vasylSocialNetworkBlock {
+    display: none;
+    margin-top: 7%;
+}
+
+.socialNetworkImage {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-top: 7%;
+    margin-left: 11%;
+}
+
+.socialNetworkImage:hover {
+    transform: scale(1.2, 1.2);
+    opacity: 1;
+}
+
+.containerSocial{
+    width: 1024px;
+    max-width: 100%;
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+figure{
+    width: 320px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    border: none;
+    box-shadow: 1px 1px 15px #b8b8b8;
+    margin: 1em;
+    cursor: pointer;
+}
+
+figcaption{
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+figcaption div{
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    top: 20px;
+    opacity: 0;
+    color: #2c3e50;
+    text-transform: uppercase;
+}
+
+figcaption div:after{
+    position: absolute;
+    content: "";
+    left: 0; right: 0;
+    bottom: 40%;
+    text-align: center;
+    margin: auto;
+    width: 0%;
+    height: 2px;
+    background: #2c3e50;
+}
+
+figure img{
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}
+
+figure:hover figcaption{
+    background: rgba(255,255,255,0.3);
+}
+
+figcaption:hover div{
+    opacity: 1;
+    top: 0;
+}
+
+figcaption:hover div:after{
+    width: 50%;
+}
+
+figure:hover img{
+    -webkit-transform: scale3d(1.2, 1.2, 1);
+    transform: scale3d(1.2, 1.2, 1);
+}

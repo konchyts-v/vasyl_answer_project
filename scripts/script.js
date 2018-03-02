@@ -1,6 +1,7 @@
 questionPageContainer = document.getElementById("questionBlock");
 infoPageContainer = document.getElementById("mainInfoBlock");
 gamePageContainer = document.getElementById("gameBlock");
+socialNetworkContainer = document.getElementById("vasylSocialNetworkBlock");
 
 answerElement = document.getElementById("answer");
 loaderElement = document.getElementById("loader");
@@ -37,7 +38,7 @@ function getAnswer(textInput) {
 		"Як Федот їбав козу, а коза Федота. Кінець анекдота",
 		"Шо скажеш хорошого?",
 		"Розказуй..."
-	]
+	];
 
 	var indexAnswer = Math.floor(Math.random() * answers.length);
 
@@ -54,17 +55,27 @@ function getAnswer(textInput) {
 document.getElementById("questionButton").onclick = function() {
 	infoPageContainer.style.display = "none";
 	gamePageContainer.style.display = "none";
+	socialNetworkContainer.style.display = "none";
 	questionPageContainer.style.display = "block";
 };
 
 document.getElementById("infoButton").onclick = function() {
 	questionPageContainer.style.display = "none";
 	gamePageContainer.style.display = "none";
+	socialNetworkContainer.style.display = "none";
 	infoPageContainer.style.display = "block";
 };
 
 document.getElementById("gameButton").onclick = function() {
 	questionPageContainer.style.display = "none";
 	infoPageContainer.style.display = "none";
+	socialNetworkContainer.style.display = "none";
     gamePageContainer.style.display = "block";
+};
+
+document.getElementById("socialNetworkButton").onclick = function() {
+	questionPageContainer.style.display = "none";
+	infoPageContainer.style.display = "none";
+    gamePageContainer.style.display = "none";
+    socialNetworkContainer.style.display = "block";
 };
