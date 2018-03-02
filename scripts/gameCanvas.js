@@ -156,7 +156,7 @@ function keyUpHandler(e) {
 
 var canvas = document.getElementById("gameCanvas");
 var ctx = canvas.getContext("2d");
-var Vasyl = new Sprite("images/vasyl_stand.png", canvas.width / 2, canvas.height - 130, 80, 130);
+var Vasyl = new Sprite("images/vasyl_stand1.png", canvas.width / 2, canvas.height - 150, 100, 150);
 var rightPressed;
 var leftPressed;
 var milksArray;
